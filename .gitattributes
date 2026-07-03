@@ -1,0 +1,9 @@
+# GitHub Linguist settings
+# Generated outputs are useful demo artifacts, but they should not dominate the
+# repository language breakdown.
+outputs/** linguist-generated=true
+
+# Data/assets are project inputs, not source-language signal.
+data/**/*.csv linguist-generated=true
+assets/** linguist-vendored=true
+notebooks/** linguist-vendored=true
