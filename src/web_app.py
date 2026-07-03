@@ -1524,7 +1524,7 @@ WEB_HTML = r"""<!doctype html>
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      gap: 4px;
+      gap: 10px;
       min-width: 0;
     }
 
@@ -1854,6 +1854,12 @@ WEB_HTML = r"""<!doctype html>
       line-height: 1;
     }
 
+    .race-menu-flag--team {
+      padding: 5px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16);
+    }
+
     .race-menu-copy {
       min-width: 0;
       flex: 1 1 auto;
@@ -1960,7 +1966,8 @@ WEB_HTML = r"""<!doctype html>
     }
 
     .select-icon--team {
-      padding: 3px;
+      padding: 4px;
+      border: 1px solid rgba(255, 255, 255, 0.14);
     }
 
     .control-select {
@@ -2033,9 +2040,17 @@ WEB_HTML = r"""<!doctype html>
     .control-meta-logo {
       width: 44px;
       height: 20px;
-      object-fit: contain;
       flex: 0 0 auto;
       filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.15));
+    }
+
+    .control-meta-logo img,
+    .race-menu-flag img,
+    .select-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
     }
 
     .control-meta-logo--fallback {
@@ -4993,7 +5008,10 @@ WEB_HTML = r"""<!doctype html>
 
     function teamLogoMarkup(teamName, logoUrl) {
       const fallback = escapeHtml(teamMonogram(teamName));
-      void logoUrl;
+      const safeTeam = escapeHtml(teamName || "Team");
+      if (logoUrl) {
+        return `<img src="${escapeHtml(logoUrl)}" alt="${safeTeam} logo" loading="lazy" onerror="this.hidden=true;this.nextElementSibling.hidden=false;"><span hidden>${fallback}</span>`;
+      }
       return `<span>${fallback}</span>`;
     }
 
@@ -5113,7 +5131,7 @@ WEB_HTML = r"""<!doctype html>
         const icon = teamLogoMarkup(driver?.team, logoUrl);
         return `
           <button type="button" class="race-menu-item" role="option" aria-selected="${driver.driver_code === current ? "true" : "false"}" data-driver="${escapeHtml(driver.driver_code)}">
-            <span class="race-menu-flag" aria-hidden="true" style="background:${escapeHtml(accent)};color:${escapeHtml(contrastColour(accent))};">${icon}</span>
+            <span class="race-menu-flag race-menu-flag--team" aria-hidden="true" style="background:${escapeHtml(accent)};color:${escapeHtml(contrastColour(accent))};">${icon}</span>
             <span class="race-menu-copy">
               <strong>${escapeHtml(driver.driver_name)}</strong>
               <span>${escapeHtml(driver.team)}</span>
@@ -5317,7 +5335,10 @@ WEB_HTML = r"""<!doctype html>
       const labelNode = $("raceToggleLabel");
       const metaNode = $("raceToggleMeta");
       if (labelNode) labelNode.textContent = race?.race_name || "Select race";
-      if (metaNode) metaNode.textContent = "Race";
+      if (metaNode) {
+        const status = race?.status === "completed" ? "Completed" : "Upcoming";
+        metaNode.textContent = race ? `${status} - ${race.country}` : "Race";
+      }
       const badge = $("raceBadge");
       if (badge) {
         badge.textContent = countryFlagEmoji(race?.country || "");

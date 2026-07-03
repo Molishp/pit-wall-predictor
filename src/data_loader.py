@@ -22,7 +22,22 @@ def _as_bool(value: object) -> bool:
 def load_all_data() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     """Load the imported real bundle when present, otherwise boot the demo bundle."""
     if has_real_bundle():
-        return load_real_bundle()
+        real_calendar, drivers, teams, laps = load_real_bundle()
+        full_calendar_path = DATA_DIR / "race_calendar_2026.csv"
+        if full_calendar_path.exists():
+            full_calendar = pd.read_csv(full_calendar_path)
+            real_by_race = real_calendar.set_index("race_name", drop=False)
+            merged_rows = []
+            for _, row in full_calendar.iterrows():
+                race_name = row["race_name"]
+                if race_name in real_by_race.index:
+                    merged_rows.append(real_by_race.loc[race_name].to_dict())
+                else:
+                    merged_rows.append(row.to_dict())
+            calendar = pd.DataFrame(merged_rows).sort_values("round").reset_index(drop=True)
+        else:
+            calendar = real_calendar
+        return calendar, drivers, teams, laps
     ensure_sample_data()
     calendar = pd.read_csv(DATA_DIR / "race_calendar_2026.csv")
     drivers = pd.read_csv(DATA_DIR / "driver_metadata.csv")
