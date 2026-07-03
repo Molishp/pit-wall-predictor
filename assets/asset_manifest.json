@@ -1,0 +1,432 @@
+{
+  "generated_by": "tools/cache_web_assets.py",
+  "drivers": {
+    "RUS": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/drivers/RUS.webp",
+      "source_url": "https://media.formula1.com/image/upload/c_fill%2Cw_720/q_auto/v1740000001/common/f1/2026/mercedes/georus01/2026mercedesgeorus01right.webp",
+      "cached": true
+    },
+    "ANT": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/drivers/ANT.webp",
+      "source_url": "https://media.formula1.com/image/upload/c_fill%2Cw_720/q_auto/v1740000001/common/f1/2026/mercedes/andant01/2026mercedesandant01right.webp",
+      "cached": true
+    },
+    "LEC": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/drivers/LEC.webp",
+      "source_url": "https://media.formula1.com/image/upload/c_fill%2Cw_720/q_auto/v1740000001/common/f1/2026/ferrari/chalec01/2026ferrarichalec01right.webp",
+      "cached": true
+    },
+    "HAM": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/drivers/HAM.webp",
+      "source_url": "https://media.formula1.com/image/upload/c_fill%2Cw_720/q_auto/v1740000001/common/f1/2026/ferrari/lewham01/2026ferrarilewham01right.webp",
+      "cached": true
+    },
+    "NOR": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/drivers/NOR.webp",
+      "source_url": "https://media.formula1.com/image/upload/c_fill%2Cw_720/q_auto/v1740000001/common/f1/2026/mclaren/lannor01/2026mclarenlannor01right.webp",
+      "cached": true
+    },
+    "PIA": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/drivers/PIA.webp",
+      "source_url": "https://media.formula1.com/image/upload/c_fill%2Cw_720/q_auto/v1740000001/common/f1/2026/mclaren/oscpia01/2026mclarenoscpia01right.webp",
+      "cached": true
+    },
+    "VER": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/drivers/VER.webp",
+      "source_url": "https://media.formula1.com/image/upload/c_fill%2Cw_720/q_auto/v1740000001/common/f1/2026/redbullracing/maxver01/2026redbullracingmaxver01right.webp",
+      "cached": true
+    },
+    "HAD": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/drivers/HAD.webp",
+      "source_url": "https://media.formula1.com/image/upload/c_fill%2Cw_720/q_auto/v1740000001/common/f1/2026/redbullracing/isahad01/2026redbullracingisahad01right.webp",
+      "cached": true
+    },
+    "GAS": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/drivers/GAS.webp",
+      "source_url": "https://media.formula1.com/image/upload/c_fill%2Cw_720/q_auto/v1740000001/common/f1/2026/alpine/piegas01/2026alpinepiegas01right.webp",
+      "cached": true
+    },
+    "COL": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/drivers/COL.webp",
+      "source_url": "https://media.formula1.com/image/upload/c_fill%2Cw_720/q_auto/v1740000001/common/f1/2026/alpine/fracol01/2026alpinefracol01right.webp",
+      "cached": true
+    },
+    "LAW": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/drivers/LAW.webp",
+      "source_url": "https://media.formula1.com/image/upload/c_fill%2Cw_720/q_auto/v1740000001/common/f1/2026/racingbulls/lialaw01/2026racingbullslialaw01right.webp",
+      "cached": true
+    },
+    "LIN": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/drivers/LIN.webp",
+      "source_url": "https://media.formula1.com/image/upload/c_fill%2Cw_720/q_auto/v1740000001/common/f1/2026/racingbulls/arvlin01/2026racingbullsarvlin01right.webp",
+      "cached": true
+    },
+    "OCO": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/drivers/OCO.webp",
+      "source_url": "https://media.formula1.com/image/upload/c_fill%2Cw_720/q_auto/v1740000001/common/f1/2026/haas/estoco01/2026haasestoco01right.webp",
+      "cached": true
+    },
+    "BEA": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/drivers/BEA.webp",
+      "source_url": "https://media.formula1.com/image/upload/c_fill%2Cw_720/q_auto/v1740000001/common/f1/2026/haas/olibea01/2026haasolibea01right.webp",
+      "cached": true
+    },
+    "SAI": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/drivers/SAI.webp",
+      "source_url": "https://media.formula1.com/image/upload/c_fill%2Cw_720/q_auto/v1740000001/common/f1/2026/williams/carsai01/2026williamscarsai01right.webp",
+      "cached": true
+    },
+    "ALB": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/drivers/ALB.webp",
+      "source_url": "https://media.formula1.com/image/upload/c_fill%2Cw_720/q_auto/v1740000001/common/f1/2026/williams/alealb01/2026williamsalealb01right.webp",
+      "cached": true
+    },
+    "HUL": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/drivers/HUL.webp",
+      "source_url": "https://media.formula1.com/image/upload/c_fill%2Cw_720/q_auto/v1740000001/common/f1/2026/audi/nichul01/2026audinichul01right.webp",
+      "cached": true
+    },
+    "BOR": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/drivers/BOR.webp",
+      "source_url": "https://media.formula1.com/image/upload/c_fill%2Cw_720/q_auto/v1740000001/common/f1/2026/audi/gabbor01/2026audigabbor01right.webp",
+      "cached": true
+    },
+    "ALO": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/drivers/ALO.webp",
+      "source_url": "https://media.formula1.com/image/upload/c_fill%2Cw_720/q_auto/v1740000001/common/f1/2026/astonmartin/feralo01/2026astonmartinferalo01right.webp",
+      "cached": true
+    },
+    "STR": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/drivers/STR.webp",
+      "source_url": "https://media.formula1.com/image/upload/c_fill%2Cw_720/q_auto/v1740000001/common/f1/2026/astonmartin/lanstr01/2026astonmartinlanstr01right.webp",
+      "cached": true
+    },
+    "PER": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/drivers/PER.webp",
+      "source_url": "https://media.formula1.com/image/upload/c_fill%2Cw_720/q_auto/v1740000001/common/f1/2026/cadillac/serper01/2026cadillacserper01right.webp",
+      "cached": true
+    },
+    "BOT": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/drivers/BOT.webp",
+      "source_url": "https://media.formula1.com/image/upload/c_fill%2Cw_720/q_auto/v1740000001/common/f1/2026/cadillac/valbot01/2026cadillacvalbot01right.webp",
+      "cached": true
+    }
+  },
+  "cars": {
+    "Mercedes": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/cars/mercedes.webp",
+      "source_url": "https://media.formula1.com/image/upload/c_lfill%2Cw_3392/q_auto/v1740000001/common/f1/2026/mercedes/2026mercedescarright.webp",
+      "cached": true
+    },
+    "Ferrari": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/cars/ferrari.webp",
+      "source_url": "https://media.formula1.com/image/upload/c_lfill%2Cw_3392/q_auto/v1740000001/common/f1/2026/ferrari/2026ferraricarright.webp",
+      "cached": true
+    },
+    "McLaren": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/cars/mclaren.webp",
+      "source_url": "https://media.formula1.com/image/upload/c_lfill%2Cw_3392/q_auto/v1740000001/common/f1/2026/mclaren/2026mclarencarright.webp",
+      "cached": true
+    },
+    "Red Bull Racing": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/cars/red_bull_racing.webp",
+      "source_url": "https://media.formula1.com/image/upload/c_lfill%2Cw_3392/q_auto/v1740000001/common/f1/2026/redbullracing/2026redbullracingcarright.webp",
+      "cached": true
+    },
+    "Alpine": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/cars/alpine.webp",
+      "source_url": "https://media.formula1.com/image/upload/c_lfill%2Cw_3392/q_auto/v1740000001/common/f1/2026/alpine/2026alpinecarright.webp",
+      "cached": true
+    },
+    "Racing Bulls": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/cars/racing_bulls.webp",
+      "source_url": "https://media.formula1.com/image/upload/c_lfill%2Cw_3392/q_auto/v1740000001/common/f1/2026/racingbulls/2026racingbullscarright.webp",
+      "cached": true
+    },
+    "Haas F1 Team": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/cars/haas_f1_team.webp",
+      "source_url": "https://media.formula1.com/image/upload/c_lfill%2Cw_3392/q_auto/v1740000001/common/f1/2026/haas/2026haascarright.webp",
+      "cached": true
+    },
+    "Williams": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/cars/williams.webp",
+      "source_url": "https://media.formula1.com/image/upload/c_lfill%2Cw_3392/q_auto/v1740000001/common/f1/2026/williams/2026williamscarright.webp",
+      "cached": true
+    },
+    "Audi": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/cars/audi.webp",
+      "source_url": "https://media.formula1.com/image/upload/c_lfill%2Cw_3392/q_auto/v1740000001/common/f1/2026/audi/2026audicarright.webp",
+      "cached": true
+    },
+    "Aston Martin": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/cars/aston_martin.webp",
+      "source_url": "https://media.formula1.com/image/upload/c_lfill%2Cw_3392/q_auto/v1740000001/common/f1/2026/astonmartin/2026astonmartincarright.webp",
+      "cached": true
+    },
+    "Cadillac": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/cars/cadillac.webp",
+      "source_url": "https://media.formula1.com/image/upload/c_lfill%2Cw_3392/q_auto/v1740000001/common/f1/2026/cadillac/2026cadillaccarright.webp",
+      "cached": true
+    }
+  },
+  "team_logos": {
+    "Mercedes": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/team_logos/mercedes.webp",
+      "source_url": "https://media.formula1.com/image/upload/c_fit%2Ch_64/q_auto/v1740000001/common/f1/2025/mercedes/2025mercedeslogowhite.webp",
+      "cached": true
+    },
+    "Ferrari": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/team_logos/ferrari.webp",
+      "source_url": "https://media.formula1.com/image/upload/c_fit%2Ch_64/q_auto/v1740000001/common/f1/2025/ferrari/2025ferrarilogolight.webp",
+      "cached": true
+    },
+    "McLaren": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/team_logos/mclaren.webp",
+      "source_url": "https://media.formula1.com/image/upload/c_fit%2Ch_64/q_auto/v1740000001/common/f1/2025/mclaren/2025mclarenlogowhite.webp",
+      "cached": true
+    },
+    "Red Bull Racing": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/team_logos/red_bull_racing.webp",
+      "source_url": "https://media.formula1.com/image/upload/c_fit%2Ch_64/q_auto/v1740000001/common/f1/2025/redbullracing/2025redbullracinglogowhite.webp",
+      "cached": true
+    },
+    "Alpine": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/team_logos/alpine.webp",
+      "source_url": "https://media.formula1.com/image/upload/c_fit%2Ch_64/q_auto/v1740000001/common/f1/2025/alpine/2025alpinelogowhite.webp",
+      "cached": true
+    },
+    "Racing Bulls": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/team_logos/racing_bulls.webp",
+      "source_url": "https://media.formula1.com/image/upload/c_fit%2Ch_64/q_auto/v1740000001/common/f1/2025/racingbulls/2025racingbullslogowhite.webp",
+      "cached": true
+    },
+    "Haas F1 Team": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/team_logos/haas_f1_team.webp",
+      "source_url": "https://media.formula1.com/image/upload/c_fit%2Ch_64/q_auto/v1740000001/common/f1/2025/haas/2025haaslogowhite.webp",
+      "cached": true
+    },
+    "Williams": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/team_logos/williams.webp",
+      "source_url": "https://media.formula1.com/image/upload/c_fit%2Ch_64/q_auto/v1740000001/common/f1/2025/williams/2025williamslogowhite.webp",
+      "cached": true
+    },
+    "Audi": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/team_logos/audi.webp",
+      "source_url": "https://media.formula1.com/image/upload/c_fit%2Ch_64/q_auto/v1740000001/common/f1/2026/audi/2026audilogowhite.webp",
+      "cached": true
+    },
+    "Aston Martin": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/team_logos/aston_martin.webp",
+      "source_url": "https://media.formula1.com/image/upload/c_fit%2Ch_64/q_auto/v1740000001/common/f1/2025/astonmartin/2025astonmartinlogowhite.webp",
+      "cached": true
+    },
+    "Cadillac": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/team_logos/cadillac.webp",
+      "source_url": "https://media.formula1.com/image/upload/c_fit%2Ch_64/q_auto/v1740000001/common/f1/2026/cadillac/2026cadillaclogowhite.webp",
+      "cached": true
+    }
+  },
+  "track_maps": {
+    "Australian Grand Prix": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/track_maps/01_australian_grand_prix.svg",
+      "race_name": "Australian Grand Prix",
+      "circuit": "Albert Park, Melbourne",
+      "cached": true
+    },
+    "Chinese Grand Prix": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/track_maps/02_chinese_grand_prix.svg",
+      "race_name": "Chinese Grand Prix",
+      "circuit": "Shanghai International Circuit, Shanghai",
+      "cached": true
+    },
+    "Japanese Grand Prix": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/track_maps/03_japanese_grand_prix.svg",
+      "race_name": "Japanese Grand Prix",
+      "circuit": "Suzuka Circuit, Suzuka",
+      "cached": true
+    },
+    "Miami Grand Prix": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/track_maps/04_miami_grand_prix.svg",
+      "race_name": "Miami Grand Prix",
+      "circuit": "Miami International Autodrome, Miami",
+      "cached": true
+    },
+    "Canadian Grand Prix": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/track_maps/05_canadian_grand_prix.png",
+      "race_name": "Canadian Grand Prix",
+      "circuit": "Circuit Gilles Villeneuve, Montreal",
+      "cached": true
+    },
+    "Monaco Grand Prix": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/track_maps/06_monaco_grand_prix.svg",
+      "race_name": "Monaco Grand Prix",
+      "circuit": "Circuit de Monaco, Monaco",
+      "cached": true
+    },
+    "Barcelona-Catalunya Grand Prix": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/track_maps/07_barcelona_catalunya_grand_prix.png",
+      "race_name": "Barcelona-Catalunya Grand Prix",
+      "circuit": "Circuit de Barcelona-Catalunya, Barcelona",
+      "cached": true
+    },
+    "Austrian Grand Prix": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/track_maps/08_austrian_grand_prix.svg",
+      "race_name": "Austrian Grand Prix",
+      "circuit": "Red Bull Ring, Spielberg",
+      "cached": true
+    },
+    "British Grand Prix": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/track_maps/09_british_grand_prix.png",
+      "race_name": "British Grand Prix",
+      "circuit": "Silverstone",
+      "cached": true
+    },
+    "Belgian Grand Prix": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/track_maps/10_belgian_grand_prix.svg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Spa-Francorchamps_of_Belgium.svg",
+      "cached": false,
+      "race_name": "Belgian Grand Prix",
+      "circuit": "Spa-Francorchamps",
+      "source_page": "Wikimedia Commons override",
+      "source_file": "Spa-Francorchamps of Belgium.svg"
+    },
+    "Hungarian Grand Prix": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/track_maps/11_hungarian_grand_prix.svg",
+      "race_name": "Hungarian Grand Prix",
+      "circuit": "Hungaroring",
+      "cached": true
+    },
+    "Dutch Grand Prix": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/track_maps/12_dutch_grand_prix.svg",
+      "race_name": "Dutch Grand Prix",
+      "circuit": "Zandvoort",
+      "cached": true
+    },
+    "Italian Grand Prix": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/track_maps/13_italian_grand_prix.svg",
+      "race_name": "Italian Grand Prix",
+      "circuit": "Monza",
+      "cached": true
+    },
+    "Spanish Grand Prix": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/track_maps/14_spanish_grand_prix.svg",
+      "race_name": "Spanish Grand Prix",
+      "circuit": "Madrid",
+      "cached": true
+    },
+    "Azerbaijan Grand Prix": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/track_maps/15_azerbaijan_grand_prix.svg",
+      "race_name": "Azerbaijan Grand Prix",
+      "circuit": "Baku",
+      "cached": true
+    },
+    "Singapore Grand Prix": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/track_maps/16_singapore_grand_prix.svg",
+      "race_name": "Singapore Grand Prix",
+      "circuit": "Marina Bay",
+      "cached": true
+    },
+    "United States Grand Prix": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/track_maps/17_united_states_grand_prix.svg",
+      "race_name": "United States Grand Prix",
+      "circuit": "COTA",
+      "cached": true
+    },
+    "Mexico City Grand Prix": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/track_maps/18_mexico_city_grand_prix.svg",
+      "race_name": "Mexico City Grand Prix",
+      "circuit": "Autodromo Hermanos Rodriguez",
+      "cached": true
+    },
+    "Sao Paulo Grand Prix": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/track_maps/19_sao_paulo_grand_prix.svg",
+      "race_name": "Sao Paulo Grand Prix",
+      "circuit": "Interlagos",
+      "cached": true
+    },
+    "Las Vegas Grand Prix": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/track_maps/20_las_vegas_grand_prix.svg",
+      "race_name": "Las Vegas Grand Prix",
+      "circuit": "Las Vegas Strip Circuit",
+      "cached": true
+    },
+    "Qatar Grand Prix": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/track_maps/21_qatar_grand_prix.png",
+      "race_name": "Qatar Grand Prix",
+      "circuit": "Lusail",
+      "cached": true
+    },
+    "Abu Dhabi Grand Prix": {
+      "ok": true,
+      "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/track_maps/22_abu_dhabi_grand_prix.svg",
+      "race_name": "Abu Dhabi Grand Prix",
+      "circuit": "Yas Marina",
+      "cached": true
+    }
+  }
+}

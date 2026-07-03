@@ -1,0 +1,23 @@
+final_position,driver_code,driver_name,team,average_clean_pace,fastest_lap,consistency_score,tyre_management_score,pit_stops,best_stint,worst_stint,race_engineer_score,badge_earned,rating
+1,HAM,Lewis Hamilton,Ferrari,81.642,80.122,71.3,43.5,6,H (L42-66),S (L1-11),73.7,Race Pace Beast,Solid Race Engineer
+2,ANT,Kimi Antonelli,Mercedes,82.303,80.704,71.3,63.9,4,H (L38-61),M (L1-14),75.0,Clean Air King,Solid Race Engineer
+2,RUS,George Russell,Mercedes,82.369,80.64,69.0,67.1,4,H (L37-66),M (L1-12),75.8,Clean Air King,Solid Race Engineer
+3,NOR,Lando Norris,McLaren,82.381,80.232,69.0,60.5,4,H (L36-66),M (L1-13),73.3,Clean Air King,Solid Race Engineer
+4,VER,Max Verstappen,Red Bull Racing,82.225,80.23,70.6,46.3,6,M (L41-66),S (L1-12),69.6,Tyre Cliff Victim,Risky Strategy Call
+5,PIA,Oscar Piastri,McLaren,82.735,80.835,71.0,57.9,4,H (L37-66),M (L1-14),69.1,Tyre Cliff Victim,Risky Strategy Call
+6,HAD,Isack Hadjar,Red Bull Racing,83.264,80.15,63.4,64.2,6,S (L59-65),M (L1-15),62.8,Tyre Cliff Victim,Risky Strategy Call
+6,LEC,Charles Leclerc,Ferrari,82.544,80.379,70.1,54.9,5,H (L40-62),M (L1-16),69.4,Smooth Operator,Risky Strategy Call
+7,GAS,Pierre Gasly,Alpine,84.182,81.708,64.8,53.4,4,H (L41-65),M (L1-14),53.8,Tyre Cliff Victim,Risky Strategy Call
+8,COL,Franco Colapinto,Alpine,84.374,82.449,70.1,60.5,4,H (L35-65),S (L1-12),57.8,Tyre Cliff Victim,Risky Strategy Call
+9,LAW,Liam Lawson,Racing Bulls,84.348,82.691,72.5,62.2,4,H (L36-65),H (L12-35),60.6,Tyre Cliff Victim,Risky Strategy Call
+10,LIN,Arvid Lindblad,Racing Bulls,84.455,81.914,58.4,76.3,4,H (L38-65),M (L1-22),55.5,Smooth Operator,Risky Strategy Call
+11,BOR,Gabriel Bortoleto,Audi,84.509,81.446,54.9,21.1,6,S (L54-64),M (L1-15),38.3,Tyre Cliff Victim,Ferrari Strategy Department
+11,ALB,Alexander Albon,Williams,85.005,81.744,58.3,0.0,7,S (L51-55),M (L1-13),29.7,Tyre Cliff Victim,Ferrari Strategy Department
+12,SAI,Carlos Sainz,Williams,84.662,82.061,67.5,50.1,6,M (L56-64),S (L1-14),50.6,Tyre Cliff Victim,Risky Strategy Call
+12,HUL,Nico Hulkenberg,Audi,84.651,83.447,82.3,46.0,3,H (L14-29),S (L1-13),58.1,Stint Monster,Risky Strategy Call
+13,OCO,Esteban Ocon,Haas F1 Team,85.054,81.643,59.2,0.0,6,S (L59-64),S (L1-13),29.4,Tyre Cliff Victim,Ferrari Strategy Department
+14,PER,Sergio Perez,Cadillac,85.778,82.82,60.1,24.4,6,H (L32-39),H (L13-31),35.3,Tyre Cliff Victim,Ferrari Strategy Department
+15,BEA,Oliver Bearman,Haas F1 Team,84.942,82.419,61.8,61.4,5,S (L40-60),M (L1-18),49.9,Smooth Operator,Ferrari Strategy Department
+18,ALO,Fernando Alonso,Aston Martin,86.621,85.366,74.3,65.4,3,H (L22-37),H (L1-21),46.7,Smooth Operator,Ferrari Strategy Department
+21,BOT,Valtteri Bottas,Cadillac,87.223,85.745,68.3,0.0,2,M (L1-14),M (L1-14),28.3,Tyre Cliff Victim,Ferrari Strategy Department
+22,STR,Lance Stroll,Aston Martin,86.212,85.904,93.3,72.3,1,H (L1-5),H (L1-5),52.6,Consistency Champion,Risky Strategy Call

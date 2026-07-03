@@ -1,0 +1,23 @@
+round,race_name,country,circuit,race_date,total_laps,status
+1,Australian Grand Prix,Australia,"Albert Park, Melbourne",2026-03-08,58,completed
+2,Chinese Grand Prix,China,"Shanghai International Circuit, Shanghai",2026-03-15,56,completed
+3,Japanese Grand Prix,Japan,"Suzuka Circuit, Suzuka",2026-03-29,53,completed
+4,Miami Grand Prix,United States,"Miami International Autodrome, Miami",2026-05-03,57,completed
+5,Canadian Grand Prix,Canada,"Circuit Gilles Villeneuve, Montreal",2026-05-24,70,completed
+6,Monaco Grand Prix,Monaco,"Circuit de Monaco, Monaco",2026-06-07,78,completed
+7,Barcelona-Catalunya Grand Prix,Spain,"Circuit de Barcelona-Catalunya, Barcelona",2026-06-14,66,completed
+8,Austrian Grand Prix,Austria,"Red Bull Ring, Spielberg",2026-06-28,71,completed
+9,British Grand Prix,Great Britain,Silverstone,2026-07-05,52,upcoming
+10,Belgian Grand Prix,Belgium,Spa-Francorchamps,2026-07-19,44,upcoming
+11,Hungarian Grand Prix,Hungary,Hungaroring,2026-07-26,70,upcoming
+12,Dutch Grand Prix,Netherlands,Zandvoort,2026-08-23,72,upcoming
+13,Italian Grand Prix,Italy,Monza,2026-09-06,53,upcoming
+14,Spanish Grand Prix,Spain,Madrid,2026-09-13,57,upcoming
+15,Azerbaijan Grand Prix,Azerbaijan,Baku,2026-09-27,51,upcoming
+16,Singapore Grand Prix,Singapore,Marina Bay,2026-10-11,62,upcoming
+17,United States Grand Prix,United States,COTA,2026-10-25,56,upcoming
+18,Mexico City Grand Prix,Mexico,Autodromo Hermanos Rodriguez,2026-11-01,71,upcoming
+19,Sao Paulo Grand Prix,Brazil,Interlagos,2026-11-08,71,upcoming
+20,Las Vegas Grand Prix,United States,Las Vegas Strip Circuit,2026-11-21,50,upcoming
+21,Qatar Grand Prix,Qatar,Lusail,2026-11-29,57,upcoming
+22,Abu Dhabi Grand Prix,United Arab Emirates,Yas Marina,2026-12-06,58,upcoming

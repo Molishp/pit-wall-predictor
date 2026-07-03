@@ -1,0 +1,34 @@
+# Python cache/build files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Local secrets/config
+.env
+.env.*
+!.env.example
+
+# OS/editor clutter
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Runtime logs
+*.log
+
+# Older duplicate FastF1 cache folders; numbered raw_sources folders are the canonical source folders.
+data/real/raw_sources/2026_*/
+
+# Codex/local agent state
+.agents/
+.codex/

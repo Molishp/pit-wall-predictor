@@ -1,0 +1,12 @@
+team,short_team_name,primary_colour,secondary_colour,car_accent_colour,engine_or_power_unit,base_country,performance_tier
+Mercedes,Mercedes,#00D2BE,#000000,#C0C0C0,Mercedes,Great Britain,Tier 1
+Ferrari,Ferrari,#E8002D,#FFD700,#FFFFFF,Ferrari,Italy,Tier 1
+McLaren,McLaren,#FF8700,#47C7FC,#FFFFFF,Mercedes,Great Britain,Tier 1
+Red Bull Racing,Red Bull,#1E41FF,#FF003C,#FFD700,Ford,Austria,Tier 1
+Alpine,Alpine,#FF87BC,#0093CC,#FFFFFF,Mercedes,France,Tier 3
+Racing Bulls,Racing Bulls,#6692FF,#FFFFFF,#1534CC,Ford,Italy,Tier 3
+Haas F1 Team,Haas,#B6BABD,#E6002B,#FFFFFF,Ferrari,United States,Tier 3
+Williams,Williams,#005AFF,#00A0DE,#FFFFFF,Mercedes,Great Britain,Tier 2
+Audi,Audi,#FF0000,#000000,#FFFFFF,Audi,Germany,Tier 2
+Aston Martin,Aston Martin,#229971,#CEDC00,#FFFFFF,Honda,Great Britain,Tier 2
+Cadillac,Cadillac,#D4AF37,#111111,#FFFFFF,Ferrari,United States,Tier 3

@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: pit-wall-predictor
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py --web --host 0.0.0.0 --no-browser
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.0

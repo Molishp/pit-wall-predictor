@@ -1,0 +1,23 @@
+driver_code,driver_name,driver_number,team,nationality,short_name,avatar_file,driver_status
+RUS,George Russell,63,Mercedes,Great Britain,Russell,assets/drivers/RUS.png,active
+ANT,Kimi Antonelli,12,Mercedes,Italy,Antonelli,assets/drivers/ANT.png,active
+LEC,Charles Leclerc,16,Ferrari,Monaco,Leclerc,assets/drivers/LEC.png,active
+HAM,Lewis Hamilton,44,Ferrari,Great Britain,Hamilton,assets/drivers/HAM.png,active
+NOR,Lando Norris,4,McLaren,Great Britain,Norris,assets/drivers/NOR.png,active
+PIA,Oscar Piastri,81,McLaren,Australia,Piastri,assets/drivers/PIA.png,active
+VER,Max Verstappen,1,Red Bull Racing,Netherlands,Verstappen,assets/drivers/VER.png,active
+HAD,Isack Hadjar,6,Red Bull Racing,France,Hadjar,assets/drivers/HAD.png,active
+GAS,Pierre Gasly,10,Alpine,France,Gasly,assets/drivers/GAS.png,active
+COL,Franco Colapinto,43,Alpine,Argentina,Colapinto,assets/drivers/COL.png,active
+LAW,Liam Lawson,30,Racing Bulls,New Zealand,Lawson,assets/drivers/LAW.png,active
+LIN,Arvid Lindblad,41,Racing Bulls,Great Britain,Lindblad,assets/drivers/LIN.png,active
+OCO,Esteban Ocon,31,Haas F1 Team,France,Ocon,assets/drivers/OCO.png,active
+BEA,Oliver Bearman,87,Haas F1 Team,Great Britain,Bearman,assets/drivers/BEA.png,active
+SAI,Carlos Sainz,55,Williams,Spain,Sainz,assets/drivers/SAI.png,active
+ALB,Alexander Albon,23,Williams,Thailand,Albon,assets/drivers/ALB.png,active
+HUL,Nico Hulkenberg,27,Audi,Germany,Hulkenberg,assets/drivers/HUL.png,active
+BOR,Gabriel Bortoleto,5,Audi,Brazil,Bortoleto,assets/drivers/BOR.png,active
+ALO,Fernando Alonso,14,Aston Martin,Spain,Alonso,assets/drivers/ALO.png,active
+STR,Lance Stroll,18,Aston Martin,Canada,Stroll,assets/drivers/STR.png,active
+PER,Sergio Perez,11,Cadillac,Mexico,Perez,assets/drivers/PER.png,active
+BOT,Valtteri Bottas,77,Cadillac,Finland,Bottas,assets/drivers/BOT.png,active

@@ -1,0 +1,322 @@
+%PDF-1.4
+%‚„œ”
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Count 1 /Kids [5 0 R] >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+4 0 obj
+<< /Length 5899 >>
+stream
+0.06 0.07 0.09 rg
+0 0 595.28 841.89 re f
+BT
+/F1 18.0 Tf
+0.960 0.970 0.980 rg
+36.00 800.00 Td
+(Barcelona-Catalunya Grand Prix - Post-Race Strategy Report) Tj
+ET
+BT
+/F1 12.5 Tf
+0.000 0.900 1.000 rg
+36.00 772.00 Td
+(Executive summary) Tj
+ET
+BT
+/F1 9.4 Tf
+0.840 0.870 0.930 rg
+36.00 754.00 Td
+(This PDF is generated locally by the Python backend from the selected imported real-data) Tj
+ET
+BT
+/F1 9.4 Tf
+0.840 0.870 0.930 rg
+36.00 741.00 Td
+(bundle. It is designed as a portfolio-friendly export: readable, compact, and focused on the) Tj
+ET
+BT
+/F1 9.4 Tf
+0.840 0.870 0.930 rg
+36.00 728.00 Td
+(engineering story.) Tj
+ET
+BT
+/F1 12.5 Tf
+0.000 0.900 1.000 rg
+36.00 709.00 Td
+(Driver battle) Tj
+ET
+BT
+/F1 9.4 Tf
+0.840 0.870 0.930 rg
+36.00 691.00 Td
+(HAM had the stronger average clean pace by 0.727s per lap. HAM was more consistent, while) Tj
+ET
+BT
+/F1 9.4 Tf
+0.840 0.870 0.930 rg
+36.00 678.00 Td
+(RUS managed degradation better. The finishing advantage went to HAM \(P1\).) Tj
+ET
+BT
+/F1 12.5 Tf
+0.000 0.900 1.000 rg
+36.00 659.00 Td
+(Selected-driver notes) Tj
+ET
+BT
+/F1 9.4 Tf
+0.840 0.870 0.930 rg
+36.00 641.00 Td
+(HAM showed strong clean-air pace and was reasonably consistent once non-representative laps) Tj
+ET
+BT
+/F1 9.4 Tf
+0.840 0.870 0.930 rg
+36.00 628.00 Td
+(were removed. The best phase was stint 4 on H tyres, while stint 1 was the slowest phase.) Tj
+ET
+BT
+/F1 9.4 Tf
+0.840 0.870 0.930 rg
+36.00 615.00 Td
+(The degradation trend suggests the tyres reached their limit too quickly.) Tj
+ET
+BT
+/F1 12.5 Tf
+0.000 0.900 1.000 rg
+36.00 596.00 Td
+(Rival notes) Tj
+ET
+BT
+/F1 9.4 Tf
+0.840 0.870 0.930 rg
+36.00 578.00 Td
+(RUS showed steady clean-air pace and was reasonably consistent once non-representative laps) Tj
+ET
+BT
+/F1 9.4 Tf
+0.840 0.870 0.930 rg
+36.00 565.00 Td
+(were removed. The best phase was stint 3 on H tyres, while stint 1 was the slowest phase.) Tj
+ET
+BT
+/F1 9.4 Tf
+0.840 0.870 0.930 rg
+36.00 552.00 Td
+(Tyre management was acceptable, with room to smooth the long-run drop-off.) Tj
+ET
+BT
+/F1 12.5 Tf
+0.000 0.900 1.000 rg
+36.00 533.00 Td
+(Full-grid race engineer ranking) Tj
+ET
+BT
+/F1 9.4 Tf
+0.840 0.870 0.930 rg
+36.00 515.00 Td
+(Pos  Driver  Team                 Pace\(s\)  Consistency  Tyres  Score) Tj
+ET
+BT
+/F1 9.4 Tf
+0.840 0.870 0.930 rg
+36.00 502.00 Td
+(P2   RUS     Mercedes              82.369        69.0   67.1   75.8) Tj
+ET
+BT
+/F1 9.4 Tf
+0.840 0.870 0.930 rg
+36.00 489.00 Td
+(P2   ANT     Mercedes              82.303        71.3   63.9   75.0) Tj
+ET
+BT
+/F1 9.4 Tf
+0.840 0.870 0.930 rg
+36.00 476.00 Td
+(P1   HAM     Ferrari               81.642        71.3   43.5   73.7) Tj
+ET
+BT
+/F1 9.4 Tf
+0.840 0.870 0.930 rg
+36.00 463.00 Td
+(P3   NOR     McLaren               82.381        69.0   60.5   73.3) Tj
+ET
+BT
+/F1 9.4 Tf
+0.840 0.870 0.930 rg
+36.00 450.00 Td
+(P4   VER     Red Bull Racing       82.225        70.6   46.3   69.6) Tj
+ET
+BT
+/F1 9.4 Tf
+0.840 0.870 0.930 rg
+36.00 437.00 Td
+(P6   LEC     Ferrari               82.544        70.1   54.9   69.4) Tj
+ET
+BT
+/F1 9.4 Tf
+0.840 0.870 0.930 rg
+36.00 424.00 Td
+(P5   PIA     McLaren               82.735        71.0   57.9   69.1) Tj
+ET
+BT
+/F1 9.4 Tf
+0.840 0.870 0.930 rg
+36.00 411.00 Td
+(P6   HAD     Red Bull Racing       83.264        63.4   64.2   62.8) Tj
+ET
+BT
+/F1 9.4 Tf
+0.840 0.870 0.930 rg
+36.00 398.00 Td
+(P9   LAW     Racing Bulls          84.348        72.5   62.2   60.6) Tj
+ET
+BT
+/F1 9.4 Tf
+0.840 0.870 0.930 rg
+36.00 385.00 Td
+(P12  HUL     Audi                  84.651        82.3   46.0   58.1) Tj
+ET
+BT
+/F1 9.4 Tf
+0.840 0.870 0.930 rg
+36.00 372.00 Td
+(P8   COL     Alpine                84.374        70.1   60.5   57.8) Tj
+ET
+BT
+/F1 9.4 Tf
+0.840 0.870 0.930 rg
+36.00 359.00 Td
+(P10  LIN     Racing Bulls          84.455        58.4   76.3   55.5) Tj
+ET
+BT
+/F1 9.4 Tf
+0.840 0.870 0.930 rg
+36.00 346.00 Td
+(P7   GAS     Alpine                84.182        64.8   53.4   53.8) Tj
+ET
+BT
+/F1 9.4 Tf
+0.840 0.870 0.930 rg
+36.00 333.00 Td
+(P22  STR     Aston Martin          86.212        93.3   72.3   52.6) Tj
+ET
+BT
+/F1 9.4 Tf
+0.840 0.870 0.930 rg
+36.00 320.00 Td
+(P12  SAI     Williams              84.662        67.5   50.1   50.6) Tj
+ET
+BT
+/F1 9.4 Tf
+0.840 0.870 0.930 rg
+36.00 307.00 Td
+(P15  BEA     Haas F1 Team          84.942        61.8   61.4   49.9) Tj
+ET
+BT
+/F1 9.4 Tf
+0.840 0.870 0.930 rg
+36.00 294.00 Td
+(P18  ALO     Aston Martin          86.621        74.3   65.4   46.7) Tj
+ET
+BT
+/F1 9.4 Tf
+0.840 0.870 0.930 rg
+36.00 281.00 Td
+(P11  BOR     Audi                  84.509        54.9   21.1   38.3) Tj
+ET
+BT
+/F1 9.4 Tf
+0.840 0.870 0.930 rg
+36.00 268.00 Td
+(P14  PER     Cadillac              85.778        60.1   24.4   35.3) Tj
+ET
+BT
+/F1 9.4 Tf
+0.840 0.870 0.930 rg
+36.00 255.00 Td
+(P11  ALB     Williams              85.005        58.3    0.0   29.7) Tj
+ET
+BT
+/F1 9.4 Tf
+0.840 0.870 0.930 rg
+36.00 242.00 Td
+(P13  OCO     Haas F1 Team          85.054        59.2    0.0   29.4) Tj
+ET
+BT
+/F1 9.4 Tf
+0.840 0.870 0.930 rg
+36.00 229.00 Td
+(P21  BOT     Cadillac              87.223        68.3    0.0   28.3) Tj
+ET
+BT
+/F1 12.5 Tf
+0.000 0.900 1.000 rg
+36.00 210.00 Td
+(Data and modelling note) Tj
+ET
+BT
+/F1 9.4 Tf
+0.840 0.870 0.930 rg
+36.00 192.00 Td
+(The project currently uses the imported real-data bundle when available. Pit laps, in-laps,) Tj
+ET
+BT
+/F1 9.4 Tf
+0.840 0.870 0.930 rg
+36.00 179.00 Td
+(out-laps, safety-car laps, and extreme outliers are removed from clean-lap calculations.) Tj
+ET
+BT
+/F1 12.5 Tf
+0.000 0.900 1.000 rg
+36.00 160.00 Td
+(SciPy tyre degradation model) Tj
+ET
+BT
+/F1 9.4 Tf
+0.840 0.870 0.930 rg
+36.00 142.00 Td
+(HAM on M: base 80.7387s, linear -0.01034, quadratic 0.006693.) Tj
+ET
+BT
+/F1 9.4 Tf
+0.840 0.870 0.930 rg
+36.00 129.00 Td
+(RMSE: 0.1488s.) Tj
+ET
+BT
+/F1 9.4 Tf
+0.840 0.870 0.930 rg
+36.00 116.00 Td
+(The fitted degradation trend is steep, suggesting a tyre drop-off; RMSE of 0.15s indicates a) Tj
+ET
+BT
+/F1 9.4 Tf
+0.840 0.870 0.930 rg
+36.00 103.00 Td
+(close fit.) Tj
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /Font << /F1 3 0 R >> >> /Contents 4 0 R >>
+endobj
+xref
+0 6
+0000000000 65535 f 
+0000000015 00000 n 
+0000000064 00000 n 
+0000000121 00000 n 
+0000000191 00000 n 
+0000006142 00000 n 
+trailer
+<< /Size 6 /Root 1 0 R >>
+startxref
+6274
+%%EOF
