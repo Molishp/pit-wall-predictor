@@ -1,4 +1,4 @@
-# Pit Wall Predictor
+# Pit Wall Predictor 🏎️
 
 Formula 1 post-race strategy analysis, built in Python.
 
