@@ -25,6 +25,7 @@ Thumbs.db
 
 # Runtime logs
 *.log
+outputs/animations/*browser_replay.html
 
 # Older duplicate FastF1 cache folders; numbered raw_sources folders are the canonical source folders.
 data/real/raw_sources/2026_*/

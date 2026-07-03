@@ -9,6 +9,7 @@ from __future__ import annotations
 
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 import hashlib
+import html
 import json
 import mimetypes
 import os
@@ -261,11 +262,11 @@ PLOT_CATALOG: dict[str, dict[str, str]] = {
 REPLAY_CATALOG: dict[str, dict[str, str]] = {
     "all": {
         "title": "Complete replay pack",
-        "description": "Generate every Matplotlib replay available for the selected race.",
+        "description": "Generate every lightweight browser replay available for the selected race.",
     },
     "race_pace": {
         "title": "Race pace replay",
-        "description": "Animates drivers across race progress using cumulative race time and gaps.",
+        "description": "Animates race progress using lap position, gap, and compound data.",
     },
     "tyre_degradation": {
         "title": "Tyre degradation replay",
@@ -953,12 +954,259 @@ class PitWallWebService:
     def _replay_summary(key: str, race_name: str, driver_code: str, used_fallback: bool, detail: str) -> str:
         fallback = " A static final-frame fallback was used." if used_fallback else ""
         if key == "race_pace":
-            return f"Race pace replay for {race_name}: cars move by cumulative race time, so pit losses and pace gaps become visible across lap progress.{fallback}"
+            return f"Race pace replay for {race_name}: the browser animates lap-by-lap position, gap, lap time, and compound data without heavy server rendering.{fallback}"
         if key == "tyre_degradation":
             return f"Tyre degradation replay for {driver_code}: clean tyre-age points appear over the fitted curve to show how lap time changes through a stint.{fallback}"
         if key == "pit_timeline":
             return f"Pit stop timeline replay for {race_name}: compound blocks fill lap by lap and pit laps are highlighted as the race unfolds.{fallback}"
         return f"{detail}{fallback}"
+
+    def _write_browser_replay(
+        self,
+        key: str,
+        race_name: str,
+        driver_code: str,
+        race_laps: pd.DataFrame,
+        results: dict[str, dict[str, Any]],
+        tyre_fit: dict[str, Any] | None,
+    ) -> Path:
+        """Write a compact HTML/JS replay that is fast enough for free hosting."""
+        output_dir = ROOT_DIR / "outputs" / "animations"
+        output_dir.mkdir(parents=True, exist_ok=True)
+        output_path = output_dir / f"{_slug(f'{race_name}_{driver_code}_{key}_browser_replay')}.html"
+
+        total_laps = int(race_laps["lap_number"].max()) if not race_laps.empty else 1
+        ordered_results = sorted(results.values(), key=lambda item: int(item.get("final_position", 99)))
+        max_gap = 1.0
+        drivers_payload: list[dict[str, Any]] = []
+        for result in ordered_results:
+            code = str(result["driver_code"])
+            driver_laps = race_laps.loc[race_laps["driver_code"] == code].sort_values("lap_number")
+            frames: list[dict[str, Any]] = []
+            for _, lap in driver_laps.iterrows():
+                raw_gap = lap.get("gap_to_leader_sec", 0.0)
+                gap = 0.0 if pd.isna(raw_gap) else float(raw_gap)
+                if not np.isfinite(gap):
+                    gap = 0.0
+                max_gap = max(max_gap, gap)
+                frames.append({
+                    "lap": int(lap["lap_number"]),
+                    "position": int(lap.get("position", result.get("final_position", 0))),
+                    "gap": round(gap, 3),
+                    "time": round(float(lap.get("lap_time_sec", 0.0) or 0.0), 3),
+                    "compound": str(lap.get("compound", "")),
+                    "pit": bool(lap.get("is_pit_lap", False)),
+                })
+            drivers_payload.append({
+                "code": code,
+                "name": str(result.get("driver_name", code)),
+                "team": str(result.get("team", "")),
+                "colour": str(result.get("team_colour", "#00e5ff")),
+                "final_position": int(result.get("final_position", 99)),
+                "score": float(result.get("race_engineer_score", 0.0)),
+                "stints": result.get("stints", []),
+                "pit_laps": sorted(driver_laps.loc[driver_laps["is_pit_lap"], "lap_number"].astype(int).unique().tolist()),
+                "frames": frames,
+            })
+
+        tyre_payload: dict[str, Any] | None = None
+        if tyre_fit is not None:
+            tyre_payload = {
+                "driver": str(tyre_fit.get("driver_code", driver_code)),
+                "compound": str(tyre_fit.get("compound", "")),
+                "rmse": float(tyre_fit.get("rmse", 0.0)),
+                "base": float(tyre_fit.get("base_pace", 0.0)),
+                "linear": float(tyre_fit.get("linear_degradation", 0.0)),
+                "quadratic": float(tyre_fit.get("quadratic_degradation", 0.0)),
+                "ages": [float(value) for value in np.asarray(tyre_fit.get("tyre_age", [])).tolist()],
+                "actual": [float(value) for value in np.asarray(tyre_fit.get("actual_lap_times", [])).tolist()],
+                "predicted": [float(value) for value in np.asarray(tyre_fit.get("predicted_lap_times", [])).tolist()],
+                "interpretation": str(tyre_fit.get("interpretation", "")),
+            }
+
+        title = REPLAY_CATALOG.get(key, REPLAY_CATALOG["race_pace"])["title"]
+        payload = {
+            "type": key,
+            "title": title,
+            "race": race_name,
+            "driver": driver_code,
+            "total_laps": total_laps,
+            "max_gap": round(max_gap, 3),
+            "drivers": drivers_payload,
+            "tyre": tyre_payload,
+        }
+
+        template = """<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>__PAGE_TITLE__</title>
+  <style>
+    :root { color-scheme: dark; --bg:#070a12; --panel:#101827; --line:rgba(255,255,255,.14); --muted:#a9b4c7; --text:#f5f7fb; --blue:#0a84ff; --green:#39ff8f; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:Inter,Segoe UI,Arial,sans-serif; background:radial-gradient(circle at 20% 0%, rgba(10,132,255,.18), transparent 34rem), var(--bg); color:var(--text); }
+    .app { width:min(980px, calc(100% - 28px)); margin:0 auto; padding:18px 0; }
+    .hero { display:flex; justify-content:space-between; gap:16px; align-items:flex-end; border:1px solid var(--line); border-radius:22px; padding:18px; background:rgba(16,24,39,.82); box-shadow:0 24px 70px rgba(0,0,0,.28); }
+    .eyebrow { color:#00e5ff; font-size:.72rem; letter-spacing:.16em; text-transform:uppercase; font-weight:900; }
+    h1 { margin:.35rem 0 .25rem; font-size:clamp(1.8rem,5vw,3.1rem); line-height:.95; letter-spacing:-.05em; }
+    p { color:var(--muted); line-height:1.5; margin:.35rem 0 0; }
+    .chip { border:1px solid rgba(57,255,143,.28); border-radius:999px; padding:9px 12px; color:#baffd2; background:rgba(57,255,143,.09); font-weight:900; white-space:nowrap; }
+    .controls { margin:14px 0; display:grid; grid-template-columns:auto 1fr auto; gap:10px; align-items:center; border:1px solid var(--line); border-radius:18px; padding:12px; background:rgba(255,255,255,.04); }
+    button { border:1px solid rgba(10,132,255,.45); border-radius:14px; padding:10px 16px; background:linear-gradient(135deg,#0a84ff,#00c7ff); color:white; font-weight:950; cursor:pointer; }
+    input[type=range] { width:100%; accent-color:#0a84ff; }
+    .lap { font-weight:950; color:#d8e7ff; min-width:82px; text-align:right; }
+    .stage { border:1px solid var(--line); border-radius:22px; padding:14px; background:rgba(16,24,39,.76); min-height:360px; overflow:hidden; }
+    .race-row { display:grid; grid-template-columns:74px 1fr 88px; align-items:center; gap:10px; padding:7px 0; border-bottom:1px solid rgba(255,255,255,.06); }
+    .driver-code { font-weight:950; color:#fff; }
+    .track { height:24px; border-radius:999px; background:rgba(255,255,255,.08); position:relative; overflow:hidden; }
+    .car { position:absolute; top:3px; width:34px; height:18px; border-radius:999px; transform:translateX(-50%); box-shadow:0 0 14px currentColor; transition:left .18s ease; }
+    .meta { color:var(--muted); font-size:.78rem; text-align:right; }
+    .pit { color:#ffd12e; font-weight:950; }
+    .timeline-row { display:grid; grid-template-columns:84px 1fr; gap:12px; align-items:center; margin:10px 0; }
+    .timeline { position:relative; display:flex; height:28px; border-radius:999px; overflow:hidden; background:rgba(255,255,255,.08); }
+    .stint { min-width:4px; }
+    .cursor { position:absolute; top:-4px; bottom:-4px; width:3px; background:#fff; box-shadow:0 0 14px #fff; }
+    svg { width:100%; height:360px; display:block; }
+    .note { margin-top:12px; border:1px solid rgba(57,255,143,.18); border-radius:16px; padding:12px; background:rgba(57,255,143,.07); color:#dfffea; }
+    @media (max-width:700px) { .hero,.controls { grid-template-columns:1fr; display:grid; } .race-row { grid-template-columns:54px 1fr; } .meta { grid-column:2; text-align:left; } }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <section class="hero">
+      <div>
+        <div class="eyebrow">Pit Wall Predictor | Browser Replay</div>
+        <h1>__TITLE__</h1>
+        <p>__RACE__ · Generated instantly from loaded race CSV data.</p>
+      </div>
+      <div class="chip" id="statusChip">Ready</div>
+    </section>
+    <section class="controls">
+      <button id="playButton" type="button">Play</button>
+      <input id="lapSlider" type="range" min="1" max="__TOTAL_LAPS__" value="1">
+      <div class="lap" id="lapLabel">Lap 1</div>
+    </section>
+    <section class="stage" id="stage"></section>
+    <div class="note" id="note"></div>
+  </main>
+  <script>
+    const replay = __DATA_JSON__;
+    let currentLap = 1;
+    let playing = false;
+    let timer = null;
+    const slider = document.getElementById("lapSlider");
+    const label = document.getElementById("lapLabel");
+    const stage = document.getElementById("stage");
+    const note = document.getElementById("note");
+    const playButton = document.getElementById("playButton");
+    const statusChip = document.getElementById("statusChip");
+    const compoundColours = {S:"#ff4560", M:"#ffd12e", H:"#f4f7fb", I:"#39ff8f", W:"#25a7ff"};
+    const clamp = (value, low, high) => Math.max(low, Math.min(high, value));
+    const esc = (value) => String(value ?? "").replace(/[&<>"']/g, (char) => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[char]));
+    function frameFor(driver, lap) {
+      let chosen = driver.frames[0] || {lap:1, position:driver.final_position, gap:0, time:0, compound:""};
+      for (const frame of driver.frames) {
+        if (frame.lap > lap) break;
+        chosen = frame;
+      }
+      return chosen;
+    }
+    function renderRace(lap) {
+      const drivers = replay.drivers.slice(0, 14).map((driver) => ({driver, frame: frameFor(driver, lap)}))
+        .sort((a, b) => a.frame.position - b.frame.position);
+      stage.innerHTML = drivers.map((item) => {
+        const gap = Number(item.frame.gap || 0);
+        const left = clamp(88 - (gap / Math.max(1, replay.max_gap)) * 74, 8, 90);
+        const compound = item.frame.compound || "";
+        return `<div class="race-row">
+          <div><span class="driver-code">${esc(item.driver.code)}</span><br><span style="color:#9ca8bd;font-size:.72rem">P${esc(item.frame.position)}</span></div>
+          <div class="track"><span class="car" style="left:${left}%;background:${esc(item.driver.colour)};color:${esc(item.driver.colour)}"></span></div>
+          <div class="meta">${Number(item.frame.time || 0).toFixed(3)}s<br><span class="${item.frame.pit ? "pit" : ""}">${item.frame.pit ? "PIT · " : ""}${esc(compound)} ${gap ? "+" + gap.toFixed(1) + "s" : "Leader"}</span></div>
+        </div>`;
+      }).join("");
+      note.textContent = "Race pace replay: car position is based on gap to the race leader for the selected lap. Pit laps are highlighted in yellow.";
+    }
+    function renderTyre(lap) {
+      const tyre = replay.tyre;
+      if (!tyre || !tyre.ages?.length) {
+        stage.innerHTML = `<div class="note">Not enough clean same-compound laps for a stable tyre replay.</div>`;
+        note.textContent = "Try another driver or compound-rich race.";
+        return;
+      }
+      const shown = tyre.ages.map((age, index) => ({age, actual: tyre.actual[index], predicted: tyre.predicted[index]})).filter((p) => p.age <= lap);
+      const points = shown.length ? shown : [{age:tyre.ages[0], actual:tyre.actual[0], predicted:tyre.predicted[0]}];
+      const allY = [...tyre.actual, ...tyre.predicted].filter(Number.isFinite);
+      const minAge = Math.min(...tyre.ages), maxAge = Math.max(...tyre.ages);
+      const minY = Math.min(...allY) - .2, maxY = Math.max(...allY) + .2;
+      const x = (age) => 60 + ((age - minAge) / Math.max(1, maxAge - minAge)) * 820;
+      const y = (time) => 320 - ((time - minY) / Math.max(.1, maxY - minY)) * 260;
+      const circles = points.map((p) => `<circle cx="${x(p.age)}" cy="${y(p.actual)}" r="5" fill="#00e5ff"><title>Age ${p.age} · ${Number(p.actual).toFixed(3)}s</title></circle>`).join("");
+      const line = tyre.ages.map((age, index) => `${index ? "L" : "M"} ${x(age)} ${y(tyre.predicted[index])}`).join(" ");
+      stage.innerHTML = `<svg viewBox="0 0 940 360" role="img" aria-label="Tyre degradation replay">
+        <rect x="0" y="0" width="940" height="360" rx="18" fill="#090e18"/>
+        <text x="60" y="34" fill="#f5f7fb" font-size="18" font-weight="900">${esc(tyre.driver)} · ${esc(tyre.compound)} tyre model</text>
+        <text x="60" y="56" fill="#9ca8bd" font-size="13">RMSE ${Number(tyre.rmse).toFixed(3)}s · lower is faster</text>
+        <path d="${line}" fill="none" stroke="#39ff8f" stroke-width="3"/>
+        ${circles}
+        <text x="60" y="342" fill="#9ca8bd" font-size="12">Tyre age</text>
+        <text x="800" y="342" fill="#9ca8bd" font-size="12">Older tyre</text>
+      </svg>`;
+      note.textContent = tyre.interpretation || "Tyre replay shows clean lap observations against the fitted degradation curve.";
+    }
+    function renderPitTimeline(lap) {
+      const drivers = replay.drivers.slice(0, 14);
+      stage.innerHTML = drivers.map((driver) => {
+        const stints = (driver.stints || []).map((stint) => {
+          const colour = compoundColours[stint.compound] || driver.colour || "#00e5ff";
+          return `<span class="stint" title="${esc(stint.compound)} L${stint.start_lap}-${stint.end_lap}" style="flex:${stint.laps || 1};background:${colour}"></span>`;
+        }).join("");
+        const cursorLeft = clamp((lap / Math.max(1, replay.total_laps)) * 100, 0, 100);
+        const pits = (driver.pit_laps || []).filter((pitLap) => pitLap <= lap).join(", ") || "none yet";
+        return `<div class="timeline-row">
+          <div><span class="driver-code">${esc(driver.code)}</span><br><span style="color:#9ca8bd;font-size:.72rem">pits ${esc(pits)}</span></div>
+          <div class="timeline">${stints}<span class="cursor" style="left:${cursorLeft}%"></span></div>
+        </div>`;
+      }).join("");
+      note.textContent = "Pit timeline replay: tyre compound blocks reveal as the lap slider moves. The white marker is the current lap.";
+    }
+    function render(lap) {
+      currentLap = clamp(Number(lap), 1, Number(replay.total_laps || 1));
+      slider.value = currentLap;
+      label.textContent = `Lap ${currentLap}`;
+      statusChip.textContent = `${replay.race} · Lap ${currentLap}/${replay.total_laps}`;
+      if (replay.type === "tyre_degradation") renderTyre(currentLap);
+      else if (replay.type === "pit_timeline") renderPitTimeline(currentLap);
+      else renderRace(currentLap);
+    }
+    function togglePlay() {
+      playing = !playing;
+      playButton.textContent = playing ? "Pause" : "Play";
+      if (timer) clearInterval(timer);
+      if (playing) {
+        timer = setInterval(() => {
+          const next = currentLap >= replay.total_laps ? 1 : currentLap + 1;
+          render(next);
+        }, 360);
+      }
+    }
+    slider.addEventListener("input", () => render(slider.value));
+    playButton.addEventListener("click", togglePlay);
+    render(1);
+  </script>
+</body>
+</html>
+"""
+        output_path.write_text(
+            template
+            .replace("__PAGE_TITLE__", html.escape(f"{title} | {race_name}"))
+            .replace("__TITLE__", html.escape(title))
+            .replace("__RACE__", html.escape(race_name))
+            .replace("__TOTAL_LAPS__", str(total_laps))
+            .replace("__DATA_JSON__", json.dumps(_jsonable(payload), ensure_ascii=False)),
+            encoding="utf-8",
+        )
+        return output_path
 
     @staticmethod
     def _report_summary(key: str, race_name: str, comparison: dict[str, Any]) -> str:
@@ -1099,38 +1347,33 @@ class PitWallWebService:
         season: int = 2026,
         replay_key: str = "all",
     ) -> dict[str, Any]:
-        if not callable(generate_animations):
-            return {
-                "ok": False,
-                "status": "error",
-                "message": "Replay generation is unavailable in this runtime because Matplotlib is not installed.",
-            }
         race = self._load_race(race_name, season)
         if not race["ok"]:
             return race
         results = race["results"]
         race_laps = race["race_laps"]
-        exports = generate_animations(race_laps, results, self._tyre_fit(race_laps, results, driver_code.upper()), ROOT_DIR / "outputs" / "animations")
+        tyre_fit = self._tyre_fit(race_laps, results, driver_code.upper())
+        requested = ["race_pace", "tyre_degradation", "pit_timeline"] if replay_key == "all" else [replay_key]
+        requested = [key for key in requested if key in {"race_pace", "tyre_degradation", "pit_timeline"}]
         files = []
-        for export in exports:
-            if export.path is None:
-                continue
-            key = _replay_key_from_name(export.path.name)
-            if replay_key != "all" and key != replay_key:
-                continue
+        messages = []
+        for key in requested:
+            path = self._write_browser_replay(key, race_name, driver_code.upper(), race_laps, results, tyre_fit)
+            detail = "Generated lightweight browser-native replay for Render-friendly preview."
             payload = self._file_payload(
-                export.path,
+                path,
                 key,
                 REPLAY_CATALOG,
-                self._replay_summary(key, race_name, driver_code.upper(), export.used_fallback, export.message),
+                self._replay_summary(key, race_name, driver_code.upper(), False, detail),
                 "replay",
             )
-            payload["used_fallback"] = export.used_fallback
-            payload["detail"] = export.message
+            payload["used_fallback"] = False
+            payload["detail"] = detail
             files.append(payload)
+            messages.append(f"{REPLAY_CATALOG[key]['title']} ready")
         return {
             "ok": True,
-            "message": "; ".join(export.message for export in exports),
+            "message": "; ".join(messages),
             "files": files,
             "catalog": REPLAY_CATALOG,
         }
@@ -4553,7 +4796,6 @@ WEB_HTML = r"""<!doctype html>
         <a class="credit-link" href="https://www.linkedin.com/in/molish-panneerselvam-22360721a/" target="_blank" rel="noreferrer noopener"><span class="credit-icon">in</span>LinkedIn</a>
         <a class="credit-link" href="mailto:pmolish@gmail.com"><span class="credit-icon">@</span>Email</a>
         <a class="credit-link" href="https://molish-personal.web.app/" target="_blank" rel="noreferrer noopener"><span class="credit-icon">W</span>Portfolio website</a>
-        <a class="credit-link" href="https://docs.google.com/document/d/11UdXSskj-0HJ3FoC7OPlVigqwPYnVBQCRQSQeLyegiw/edit?usp=drive_link" target="_blank" rel="noreferrer noopener"><span class="credit-icon">P</span>Portfolio PDF</a>
       </div>
     </div>
   </footer>
