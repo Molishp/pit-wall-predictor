@@ -4363,14 +4363,56 @@ WEB_HTML = r"""<!doctype html>
       .overview-grid { grid-template-columns: 1fr; }
       .strategy-cards, .strategy-notes { grid-template-columns: 1fr; }
       .export-stack, .output-grid, .output-card-grid { grid-template-columns: 1fr; }
-      .shell { width: min(100% - 20px, 1500px); }
+      html, body { overflow-x: hidden; }
+      .shell { width: min(100% - 14px, 1500px); padding: 10px 0 24px; }
       .site-header { padding-top: 8px; }
-      .header-shell { padding: 10px 12px 10px; border-radius: 24px; }
+      .header-shell { padding: 12px; border-radius: 22px; gap: 10px; }
       .header-mark { width: 132px; opacity: 0.10; }
+      .header-brand { gap: 6px; }
+      .site-title { font-size: clamp(1.65rem, 10vw, 2.25rem); line-height: 0.96; }
+      .header-brand .eyebrow { font-size: 0.62rem; line-height: 1.35; white-space: normal; }
       .header-actions { gap: 8px; }
-      .page-nav { justify-content: flex-start; }
+      .page-nav {
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        max-width: 100%;
+        padding-bottom: 2px;
+        scrollbar-width: none;
+      }
+      .page-nav::-webkit-scrollbar { display: none; }
+      .page-link { flex: 0 0 auto; padding: 10px 13px; font-size: 0.78rem; }
+      .theme-button, .status-chip { padding: 9px 11px; }
+      .hero { margin-top: 10px; padding: 12px; border-radius: 22px; }
+      .control-deck { gap: 9px; padding-top: 9px; }
+      .control-group label { font-size: 0.68rem; }
+      .race-toggle { min-height: 46px; padding: 9px 11px; gap: 9px; }
+      .race-toggle .select-icon { flex-basis: 30px; width: 30px; height: 30px; }
+      .race-toggle-label {
+        font-size: 0.86rem;
+        white-space: normal;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+      }
+      .race-menu {
+        position: fixed;
+        left: 8px;
+        right: 8px;
+        top: auto;
+        bottom: 12px;
+        max-height: min(70vh, 520px);
+        border-radius: 22px;
+        z-index: 200;
+      }
+      .race-menu-item { padding: 11px 10px; }
+      .race-menu-copy strong,
+      .race-menu-copy span {
+        white-space: normal;
+      }
       .overview-hero-copy { padding: 18px; }
       .overview-headline { font-size: 2.15rem; max-width: 100%; }
+      .overview-actions { display: grid; grid-template-columns: 1fr; }
       .overview-feature-wall { padding: 14px; }
       .overview-specs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .team-ribbon { grid-template-columns: 1fr; }
@@ -4381,6 +4423,21 @@ WEB_HTML = r"""<!doctype html>
       .driver-label-stack { max-width: 56%; right: 14px; top: 14px; }
       .driver-name { font-size: clamp(1.3rem, 5vw, 2rem); }
       .track-stage { min-height: 250px; }
+      .panel-header { align-items: flex-start; flex-direction: column; }
+      .export-control, .export-preview-panel { padding: 14px; }
+      .inline-preview { padding: 12px; }
+      .inline-preview iframe.preview-frame--replay { height: min(360px, 58vh); }
+    }
+
+    @media (max-width: 480px) {
+      .overview-specs { grid-template-columns: 1fr; }
+      .driver-composite { min-height: 240px; }
+      .driver-portrait { max-height: 230px; }
+      .driver-label-stack { max-width: 60%; }
+      .driver-name { font-size: 1.35rem; }
+      .score-ring { width: 220px; height: 220px; }
+      .leader-row { grid-template-columns: 40px 52px 1fr 54px; gap: 6px; }
+      canvas { min-height: 260px; }
     }
   </style>
 </head>
