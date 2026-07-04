@@ -77,7 +77,7 @@ The scores are explanatory and educational, not official Formula 1 ratings.
 ## Run Locally
 
 ```powershell
-cd "F1 Strategy Simulator"
+cd "pit-wall-predictor" in your files
 python -m venv .venv
 .\.venv\Scripts\activate
 python -m pip install -r requirements.txt
