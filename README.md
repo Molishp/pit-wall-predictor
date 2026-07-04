@@ -40,6 +40,12 @@ The app currently includes imported 2026 race data.
 
 Completed races are available for full analysis. Upcoming races are shown in the selector but safely marked as upcoming until data is imported.
 
+## Limitations
+
+- The project currently focuses only on the 2026 Formula 1 season.
+- The analysis covers main Grand Prix race sessions only, not sprint races, qualifying, practice, or live race prediction.
+- The live website is hosted on Render, so it may go inactive after a period of no traffic. If the page loads slowly, wait a short time and refresh once the service wakes up.
+
 ## How It Works
 
 1. Load race lap CSV data.
