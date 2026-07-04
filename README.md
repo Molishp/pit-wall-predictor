@@ -1,4 +1,4 @@
-# Pit Wall Predictor
+# Pit Wall Predictor 🏎️
 
 A Formula 1 post-race strategy dashboard built with Python.
 
@@ -6,7 +6,7 @@ Live site: https://pit-wall-predictor.onrender.com/
 
 ## Overview
 
-Pit Wall Predictor converts completed Grand Prix lap data into a clean race-engineering dashboard. It helps compare drivers, review tyre stints, inspect clean race pace, generate strategy notes, and export plots, replays, and reports.
+Pit Wall Predictor converts completed Formula 1 Grand Prix lap data into a clean race-engineering dashboard. It helps compare drivers, review tyre stints, inspect clean race pace, generate strategy notes, and export plots, replays, and reports.
 
 The project is designed as a portfolio piece combining Python data analysis, backend logic, and a custom browser UI.
 
@@ -34,15 +34,9 @@ The project is designed as a portfolio piece combining Python data analysis, bac
 - Python `http.server`
 - Render
 
-No Flask, FastAPI, Streamlit, React, or Plotly is used.
-
 ## Data
 
-The app currently includes imported 2026 race data through:
-
-```text
-Round 8 - Austrian Grand Prix
-```
+The app currently includes imported 2026 race data.
 
 Completed races are available for full analysis. Upcoming races are shown in the selector but safely marked as upcoming until data is imported.
 
@@ -55,8 +49,6 @@ Completed races are available for full analysis. Upcoming races are shown in the
 5. Generate readable strategy notes, plots, replays, and reports.
 
 ## Core Formulas
-
-The README keeps the maths short. The detailed formula explanation belongs in the full project report.
 
 ```text
 Clean Lap = not pit lap
@@ -129,7 +121,7 @@ requirements.txt         Python dependencies
 ## Author
 
 Molish Panneerselvam  
-Mechanical Engineer
+Mechanical Engineer | Motorsport and Aerospace design
 
 - LinkedIn: https://www.linkedin.com/in/molish-panneerselvam-22360721a/
 - Portfolio: https://molish-personal.web.app/
