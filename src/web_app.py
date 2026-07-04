@@ -1720,6 +1720,10 @@ WEB_HTML = r"""<!doctype html>
       z-index: 22;
     }
 
+    .race-picker--open {
+      z-index: 120;
+    }
+
     .race-toggle {
       display: flex;
       align-items: center;
@@ -1798,6 +1802,7 @@ WEB_HTML = r"""<!doctype html>
       gap: 6px;
       max-height: min(54vh, 500px);
       overflow: auto;
+      overscroll-behavior: contain;
       padding: 8px;
       border: 1px solid rgba(255, 255, 255, 0.10);
       border-radius: 20px;
@@ -4395,15 +4400,24 @@ WEB_HTML = r"""<!doctype html>
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
       }
+      .race-picker {
+        z-index: auto;
+      }
+      .race-picker--open {
+        z-index: 40;
+      }
       .race-menu {
-        position: fixed;
-        left: 8px;
-        right: 8px;
+        position: static;
+        left: auto;
+        right: auto;
         top: auto;
-        bottom: 12px;
-        max-height: min(70vh, 520px);
+        bottom: auto;
+        width: 100%;
+        max-height: min(48vh, 390px);
+        margin-top: 8px;
         border-radius: 22px;
-        z-index: 200;
+        z-index: auto;
+        box-shadow: 0 18px 42px rgba(15, 23, 42, 0.28);
       }
       .race-menu-item { padding: 11px 10px; }
       .race-menu-copy strong,
@@ -5125,6 +5139,7 @@ WEB_HTML = r"""<!doctype html>
       closeDropdown("driver");
       closeDropdown("compare");
       menu.hidden = false;
+      menu.parentElement?.classList.add("race-picker--open");
       toggle.setAttribute("aria-expanded", "true");
     }
 
@@ -5133,6 +5148,7 @@ WEB_HTML = r"""<!doctype html>
       const toggle = $("raceToggle");
       if (!menu || !toggle) return;
       menu.hidden = true;
+      menu.parentElement?.classList.remove("race-picker--open");
       toggle.setAttribute("aria-expanded", "false");
     }
 
@@ -5234,6 +5250,7 @@ WEB_HTML = r"""<!doctype html>
       const toggle = $(`${kind}Toggle`);
       if (!menu || !toggle) return;
       menu.hidden = false;
+      menu.parentElement?.classList.add("race-picker--open");
       toggle.setAttribute("aria-expanded", "true");
     }
 
@@ -5242,6 +5259,7 @@ WEB_HTML = r"""<!doctype html>
       const toggle = $(`${kind}Toggle`);
       if (!menu || !toggle) return;
       menu.hidden = true;
+      menu.parentElement?.classList.remove("race-picker--open");
       toggle.setAttribute("aria-expanded", "false");
     }
 
