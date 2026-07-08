@@ -7,3 +7,4 @@ season,race_name,race_date,country,circuit,status,source_type,source_url,local_c
 2026,Monaco Grand Prix,2026-06-07,Monaco,"Circuit de Monaco, Monaco",completed,fastf1_export,,data/real/raw_sources/06_monaco_grand_prix/laps.csv,78,Official FastF1-style local CSV export
 2026,Barcelona-Catalunya Grand Prix,2026-06-14,Spain,"Circuit de Barcelona-Catalunya, Barcelona",completed,fastf1_export,,data/real/raw_sources/07_barcelona_catalunya_grand_prix/laps.csv,66,Official FastF1-style local CSV export
 2026,Austrian Grand Prix,2026-06-28,Austria,"Red Bull Ring, Spielberg",completed,fastf1_export,,data/real/raw_sources/08_austrian_grand_prix/laps.csv,71,Official FastF1-style local CSV export
+2026,British Grand Prix,2026-07-05,Great Britain,Silverstone,completed,fastf1_export,,data/real/raw_sources/09_british_grand_prix/laps.csv,52,Official FastF1-style local CSV export

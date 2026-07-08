@@ -6,6 +6,7 @@ stable during demos and keep the project folder organized.
 
 from __future__ import annotations
 
+import argparse
 import csv
 import json
 import re
@@ -43,6 +44,7 @@ TEAM_LOGO_DIR = ASSET_DIR / "team_logos"
 TRACK_DIR = ASSET_DIR / "track_maps"
 MANIFEST_PATH = ASSET_DIR / "asset_manifest.json"
 COMMONS_API_URL = "https://commons.wikimedia.org/w/api.php"
+MIN_TRACK_MAP_BYTES = 2_000
 TRACK_FILE_OVERRIDES = {
     "Miami Grand Prix": "2022 F1 CourseLayout Miami.svg",
     "Canadian Grand Prix": "2022 F1 CourseLayout Canada.svg",
@@ -65,9 +67,9 @@ def load_csv(path: Path) -> list[dict[str, str]]:
         return list(csv.DictReader(handle))
 
 
-def download(url: str, path: Path, binary: bool = True) -> dict[str, Any]:
+def download(url: str, path: Path, binary: bool = True, force: bool = False) -> dict[str, Any]:
     path.parent.mkdir(parents=True, exist_ok=True)
-    if path.exists() and path.stat().st_size > 0:
+    if path.exists() and path.stat().st_size > 0 and not force:
         return {"ok": True, "path": path.as_posix(), "source_url": url, "cached": True}
     request = urllib.request.Request(url, headers=TRACK_REQUEST_HEADERS)
     try:
@@ -80,6 +82,10 @@ def download(url: str, path: Path, binary: bool = True) -> dict[str, Any]:
     path.write_bytes(content)
     time.sleep(0.08)
     return {"ok": True, "path": path.as_posix(), "source_url": url, "cached": False}
+
+
+def usable_track_asset(path: Path) -> bool:
+    return path.exists() and path.stat().st_size >= MIN_TRACK_MAP_BYTES
 
 
 def commons_json(params: dict[str, Any]) -> dict[str, Any]:
@@ -154,29 +160,30 @@ def track_map_from_commons_search(race_name: str, circuit: str) -> dict[str, Any
     return None
 
 
-def cache_track(row: dict[str, str]) -> dict[str, Any]:
+def cache_track(row: dict[str, str], refresh: bool = False) -> dict[str, Any]:
     race_name = row["race_name"]
     circuit = row["circuit"]
     round_no = int(row["round"])
     path = TRACK_DIR / f"{round_no:02d}_{slug(race_name)}.svg"
     existing_png = TRACK_DIR / f"{round_no:02d}_{slug(race_name)}.png"
-    if path.exists() and path.stat().st_size > 0:
+    force_download = refresh or (path.exists() and not usable_track_asset(path)) or (existing_png.exists() and not usable_track_asset(existing_png))
+    if not force_download and usable_track_asset(path):
         return {"ok": True, "path": path.as_posix(), "race_name": race_name, "circuit": circuit, "cached": True}
-    if existing_png.exists() and existing_png.stat().st_size > 0:
+    if not force_download and usable_track_asset(existing_png):
         return {"ok": True, "path": existing_png.as_posix(), "race_name": race_name, "circuit": circuit, "cached": True}
     override_file = TRACK_FILE_OVERRIDES.get(race_name)
     if override_file:
         raw_url = _commons_raw_svg_url(override_file)
-        saved = download(raw_url, path, binary=False)
+        saved = download(raw_url, path, binary=False, force=force_download)
         if not saved.get("ok") and "429" in str(saved.get("error", "")):
             thumbnail_path = TRACK_DIR / f"{round_no:02d}_{slug(race_name)}.png"
             thumbnail_url = f"https://commons.wikimedia.org/wiki/Special:Redirect/file/{quote(override_file.replace(' ', '_'))}?width=1400"
-            saved = download(thumbnail_url, thumbnail_path, binary=True)
+            saved = download(thumbnail_url, thumbnail_path, binary=True, force=force_download)
         if not saved.get("ok") and "429" in str(saved.get("error", "")):
             thumbnail_url = commons_thumbnail_url(override_file)
             if thumbnail_url:
                 thumbnail_path = TRACK_DIR / f"{round_no:02d}_{slug(race_name)}.png"
-                saved = download(thumbnail_url, thumbnail_path, binary=True)
+                saved = download(thumbnail_url, thumbnail_path, binary=True, force=force_download)
         saved.update({
             "race_name": race_name,
             "circuit": circuit,
@@ -217,7 +224,7 @@ def cache_track(row: dict[str, str]) -> dict[str, Any]:
             "path": path.as_posix(),
             "error": "No trusted SVG track candidate found.",
         }
-    saved = download(str(result["raw_svg_url"]), path, binary=False)
+    saved = download(str(result["raw_svg_url"]), path, binary=False, force=force_download)
     saved.update({
         "race_name": race_name,
         "circuit": circuit,
@@ -229,6 +236,10 @@ def cache_track(row: dict[str, str]) -> dict[str, Any]:
 
 
 def main() -> int:
+    parser = argparse.ArgumentParser(description="Cache web assets used by the Pit Wall Predictor UI.")
+    parser.add_argument("--refresh-track-maps", action="store_true", help="Redownload track map assets even when local files already exist.")
+    args = parser.parse_args()
+
     for directory in (DRIVER_DIR, CAR_DIR, TEAM_LOGO_DIR, TRACK_DIR):
         directory.mkdir(parents=True, exist_ok=True)
 
@@ -260,7 +271,7 @@ def main() -> int:
             manifest["team_logos"][team_name] = download(media["logo"], TEAM_LOGO_DIR / f"{key}.webp")
 
     for row in calendar:
-        manifest["track_maps"][row["race_name"]] = cache_track(row)
+        manifest["track_maps"][row["race_name"]] = cache_track(row, refresh=args.refresh_track_maps)
 
     MANIFEST_PATH.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
     ok_count = sum(

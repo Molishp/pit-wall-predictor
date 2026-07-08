@@ -210,9 +210,10 @@ def _track_map_asset_url(row: pd.Series | dict[str, Any]) -> str | None:
         return None
     stem = f"assets/track_maps/{round_no:02d}_{_slug(race_name)}"
     for extension in ("svg", "png", "webp", "jpg", "jpeg"):
-        url = _local_asset_url(f"{stem}.{extension}")
-        if url:
-            return url
+        relative = f"{stem}.{extension}"
+        path = ROOT_DIR / relative
+        if path.exists() and path.is_file() and path.stat().st_size >= 2_000:
+            return "/" + Path(relative).as_posix()
     return None
 
 
@@ -4910,6 +4911,7 @@ WEB_HTML = r"""<!doctype html>
     };
 
     const $ = (id) => document.getElementById(id);
+    const SELECTION_STORAGE_KEY = "pitwall-selection";
 
     function escapeHtml(value) {
       return String(value ?? "").replace(/[&<>"']/g, (char) => ({
@@ -4946,6 +4948,49 @@ WEB_HTML = r"""<!doctype html>
         throw new Error(data.message || response.statusText);
       }
       return data;
+    }
+
+    function readStoredSelection() {
+      try {
+        const stored = JSON.parse(localStorage.getItem(SELECTION_STORAGE_KEY) || "{}");
+        return stored && typeof stored === "object" ? stored : {};
+      } catch (error) {
+        void error;
+        return {};
+      }
+    }
+
+    function writeStoredSelection(selection) {
+      try {
+        localStorage.setItem(SELECTION_STORAGE_KEY, JSON.stringify(selection));
+      } catch (error) {
+        void error;
+      }
+    }
+
+    function validRaceName(raceName) {
+      return Boolean(state.bootstrap?.calendar?.some((race) => race.race_name === raceName));
+    }
+
+    function validDriverCode(driverCode) {
+      return Boolean(state.driversByCode?.has(driverCode));
+    }
+
+    function preferredSelection(defaults) {
+      const stored = readStoredSelection();
+      return {
+        race: validRaceName(stored.race) ? stored.race : defaults.race,
+        driver: validDriverCode(stored.driver) ? stored.driver : defaults.driver,
+        compare: validDriverCode(stored.compare) ? stored.compare : defaults.compare,
+      };
+    }
+
+    function persistSelection() {
+      writeStoredSelection({
+        race: selectedRaceValue(),
+        driver: selectedPersonValue("driver"),
+        compare: selectedPersonValue("compare"),
+      });
     }
 
     async function postJson(url, payload) {
@@ -5170,6 +5215,7 @@ WEB_HTML = r"""<!doctype html>
       const raceSelect = $("raceSelect");
       if (!raceSelect || !raceName) return;
       raceSelect.value = raceName;
+      persistSelection();
       syncRaceToggle();
       renderOverview();
       if (pageName() !== "overview") {
@@ -5275,6 +5321,7 @@ WEB_HTML = r"""<!doctype html>
       const input = $(`${kind}Select`);
       if (!input || !value) return;
       input.value = value;
+      persistSelection();
       syncPersonToggle(kind);
       renderOverview();
       analyze();
@@ -5452,13 +5499,18 @@ WEB_HTML = r"""<!doctype html>
       const drivers = Array.isArray(state.bootstrap.drivers) ? state.bootstrap.drivers : [];
       state.teamsByName = new Map(teams.map((team) => [team.team, team]));
       state.driversByCode = new Map(drivers.map((driver) => [driver.driver_code, driver]));
+      const selection = preferredSelection({
+        race: default_race,
+        driver: default_driver,
+        compare: default_compare,
+      });
 
       const raceSelect = $("raceSelect");
       const driverSelect = $("driverSelect");
       const compareSelect = $("compareSelect");
-      if (raceSelect) raceSelect.value = default_race;
-      if (driverSelect) driverSelect.value = default_driver;
-      if (compareSelect) compareSelect.value = default_compare;
+      if (raceSelect) raceSelect.value = selection.race;
+      if (driverSelect) driverSelect.value = selection.driver;
+      if (compareSelect) compareSelect.value = selection.compare;
 
       renderRaceMenu();
       renderPersonMenu("driver");
@@ -5467,6 +5519,7 @@ WEB_HTML = r"""<!doctype html>
       syncPersonToggle("driver");
       syncPersonToggle("compare");
       updateControlBadges();
+      persistSelection();
     }
 
     function loadRemoteImage(image, url, altText) {

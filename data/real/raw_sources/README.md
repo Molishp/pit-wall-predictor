@@ -12,6 +12,7 @@ Recommended pattern:
 - `2026_monaco_grand_prix/`
 - `2026_barcelona_catalunya_grand_prix/`
 - `2026_austrian_grand_prix/`
+- `2026_british_grand_prix/`
 
 You can keep the source CSV filename as-is inside each folder. The importer will copy it
 into the real-data bundle and normalize the contents.
