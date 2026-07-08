@@ -5,7 +5,7 @@
     "source_url": "",
     "source_type": "fastf1_export",
     "source_note": "Official FastF1-style local CSV export",
-    "cached_csv": "raw_sources\\01_australian_grand_prix\\laps.csv",
+    "cached_csv": "raw_sources\\2026_australian_grand_prix\\laps.csv",
     "sha256": "3d77de7a1b0d3fc7d4d4e9667d908878d30bff114a9aa5bef78e1e91f087c3eb",
     "rows": 1000
   },
@@ -15,7 +15,7 @@
     "source_url": "",
     "source_type": "fastf1_export",
     "source_note": "Official FastF1-style local CSV export",
-    "cached_csv": "raw_sources\\02_chinese_grand_prix\\laps.csv",
+    "cached_csv": "raw_sources\\2026_chinese_grand_prix\\laps.csv",
     "sha256": "de3c6fcd78bdf82d366fa32b58c1264c0ccbcb4c41175233edf73433839b3efe",
     "rows": 904
   },
@@ -25,7 +25,7 @@
     "source_url": "",
     "source_type": "fastf1_export",
     "source_note": "Official FastF1-style local CSV export",
-    "cached_csv": "raw_sources\\03_japanese_grand_prix\\laps.csv",
+    "cached_csv": "raw_sources\\2026_japanese_grand_prix\\laps.csv",
     "sha256": "94db37b85c61a9da107c518b8a857b8f53d812b8afdd72ebf30034a03d5131cd",
     "rows": 1086
   },
@@ -35,7 +35,7 @@
     "source_url": "",
     "source_type": "fastf1_export",
     "source_note": "Official FastF1-style local CSV export",
-    "cached_csv": "raw_sources\\04_miami_grand_prix\\laps.csv",
+    "cached_csv": "raw_sources\\2026_miami_grand_prix\\laps.csv",
     "sha256": "22d7f1605382a5df46a16e8975691a39096f8dcd157e4fddfc5f3e4e818692cc",
     "rows": 1033
   },
@@ -45,7 +45,7 @@
     "source_url": "",
     "source_type": "fastf1_export",
     "source_note": "Official FastF1-style local CSV export",
-    "cached_csv": "raw_sources\\05_canadian_grand_prix\\laps.csv",
+    "cached_csv": "raw_sources\\2026_canadian_grand_prix\\laps.csv",
     "sha256": "c51e07b6c1da8f2556774d5730eb38b2153494553314e4fe697c75ad9203ff27",
     "rows": 1206
   },
@@ -55,7 +55,7 @@
     "source_url": "",
     "source_type": "fastf1_export",
     "source_note": "Official FastF1-style local CSV export",
-    "cached_csv": "raw_sources\\06_monaco_grand_prix\\laps.csv",
+    "cached_csv": "raw_sources\\2026_monaco_grand_prix\\laps.csv",
     "sha256": "181c959f1c3b44d9cbf37eff4be23766232e91eb3b95b520484c79349dd51741",
     "rows": 1415
   },
@@ -65,7 +65,7 @@
     "source_url": "",
     "source_type": "fastf1_export",
     "source_note": "Official FastF1-style local CSV export",
-    "cached_csv": "raw_sources\\07_barcelona_catalunya_grand_prix\\laps.csv",
+    "cached_csv": "raw_sources\\2026_barcelona_catalunya_grand_prix\\laps.csv",
     "sha256": "9ea1763f2e07791fce14cfc2e3ba199e1934b485ad81483431e5ccd3ea487ef6",
     "rows": 1233
   },
@@ -75,8 +75,18 @@
     "source_url": "",
     "source_type": "fastf1_export",
     "source_note": "Official FastF1-style local CSV export",
-    "cached_csv": "raw_sources\\08_austrian_grand_prix\\laps.csv",
+    "cached_csv": "raw_sources\\2026_austrian_grand_prix\\laps.csv",
     "sha256": "5e53f6fbfe08e6f9b6a4f34974d79e9447d46c60dda7e94eb1e4e06d247b8965",
     "rows": 1338
+  },
+  {
+    "race_name": "British Grand Prix",
+    "season": 2026,
+    "source_url": "",
+    "source_type": "fastf1_export",
+    "source_note": "Official FastF1-style local CSV export",
+    "cached_csv": "raw_sources\\2026_british_grand_prix\\laps.csv",
+    "sha256": "9f26a6b9d19d9dc951fa78215f5d4d30cf4a087e9f4bf2b31411da9392c55bcb",
+    "rows": 1092
   }
 ]

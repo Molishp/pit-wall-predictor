@@ -52,7 +52,9 @@ TRACK_FILE_OVERRIDES = {
     "Barcelona-Catalunya Grand Prix": "2023 F1 CourseLayout Spain.svg",
     "British Grand Prix": "2022 F1 CourseLayout Britain.svg",
     "Belgian Grand Prix": "Spa-Francorchamps of Belgium.svg",
+    "Italian Grand Prix": "Monza track map.svg",
     "Azerbaijan Grand Prix": "Baku Formula One circuit map.svg",
+    "Sao Paulo Grand Prix": "Autódromo José Carlos Pace (AKA Interlagos) track map.svg",
     "Qatar Grand Prix": "2023 F1 CourseLayout Qatar.svg",
 }
 

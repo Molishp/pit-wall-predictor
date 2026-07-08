@@ -363,6 +363,9 @@
       "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/track_maps/13_italian_grand_prix.svg",
       "race_name": "Italian Grand Prix",
       "circuit": "Monza",
+      "source_page": "Wikimedia Commons override",
+      "source_file": "Monza track map.svg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Monza_track_map.svg",
       "cached": true
     },
     "Spanish Grand Prix": {
@@ -405,6 +408,9 @@
       "path": "M:/Upskill and Self Learn/Personal Projects/F1 Strategy Simulator/assets/track_maps/19_sao_paulo_grand_prix.svg",
       "race_name": "Sao Paulo Grand Prix",
       "circuit": "Interlagos",
+      "source_page": "Wikimedia Commons override",
+      "source_file": "Autódromo José Carlos Pace (AKA Interlagos) track map.svg",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Aut%C3%B3dromo_Jos%C3%A9_Carlos_Pace_(AKA_Interlagos)_track_map.svg",
       "cached": true
     },
     "Las Vegas Grand Prix": {
